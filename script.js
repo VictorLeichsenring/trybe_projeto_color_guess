@@ -1,6 +1,14 @@
 const textRGB = document.getElementById('rgb-color');
 const options = document.getElementById('options');
 const answer = document.getElementById('answer');
+const btnResetGame = document.getElementById('reset-game');
+
+function reset() {
+    textRGB.innerText = generateColor();
+    generateOptions(6);
+    answer.innerText = 'Escolha uma cor';
+    
+}
 
 function play(event) {
     const choice = event.target;
@@ -11,9 +19,12 @@ function play(event) {
     }
 }
 function generateOptions(quantidade){
+    const optionsElements = options.querySelectorAll('.ball');
+    optionsElements.forEach((elemento) => {
+        elemento.remove();
+    })
     const positionRandom = generateRandomInt(0, quantidade);
     const winnerColor = textRGB.innerText;
-    console.log(winnerColor)
     for (let i = 0; i < quantidade; i += 1) {
         const element = document.createElement('div');
         element.classList.add('ball');
@@ -41,3 +52,4 @@ function generateRandomInt(min, max) {
 
 textRGB.innerText = generateColor();
 generateOptions(6);
+btnResetGame.addEventListener('click', reset);
