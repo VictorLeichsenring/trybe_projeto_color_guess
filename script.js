@@ -5,6 +5,7 @@ function generateOptions(quantidade){
     for (let i = 0; i < quantidade; i += 1) {
         const element = document.createElement('div');
         element.classList.add('ball');
+        element.style.backgroundColor = generateColor();
         options.appendChild(element);
     }    
 }
@@ -13,7 +14,7 @@ function generateColor() {
     const red = generateRandomInt();
     const green = generateRandomInt();
     const blue = generateRandomInt();
-    const color = `rba(${red}, ${green}, ${blue})`;
+    const color = `rgb(${red}, ${green}, ${blue})`;
     return color;
 }
 
