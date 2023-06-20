@@ -1,3 +1,7 @@
+#score-content p {
+  display: inline;
+}
+
 .ball {
   width: 100px;
   height: 100px;
